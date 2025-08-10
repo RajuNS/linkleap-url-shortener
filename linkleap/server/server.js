@@ -8,13 +8,15 @@ const Url = require('./models/urlModel');
 const app = express();
 
 // --- Middleware ---
-// The two lines below MUST come BEFORE the API routes are defined.
-// This ensures that all incoming requests are parsed correctly.
 app.use(cors());
 app.use(express.json());
 
+// --- !! TEMPORARY DEBUGGING STEP !! ---
+// Replace the placeholder below with your full MongoDB Atlas connection string.
+const MONGO_URI_DEBUG = "YOUR_ATLAS_CONNECTION_STRING_HERE";
+
 // --- Database Connection ---
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(MONGO_URI_DEBUG) // We are using the hardcoded string here
   .then(() => console.log('MongoDB Connected Successfully...'))
   .catch(err => console.error('MongoDB Connection Error:', err));
 
@@ -23,7 +25,6 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/urls', require('./routes/urlRoutes'));
 
 // --- Redirect Logic ---
-// This handles the redirection when a short link is visited.
 app.get('/:code', async (req, res) => {
   const code = req.params.code;
   try {
