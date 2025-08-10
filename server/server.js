@@ -11,9 +11,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// --- !! TEMPORARY DEBUGGING STEP !! ---
-// Replace the placeholder below with your full MongoDB Atlas connection string.
+// --- !! FINAL DEBUGGING STEP !! ---
+// Paste your full MongoDB Atlas connection string inside the quotation marks below.
+// Example: "mongodb+srv://nelapatir1:YourPassword123@cluster0.zuhccvd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 const MONGO_URI_DEBUG = "mongodb+srv://nelapatir1:Ramadevi@143@cluster0.zuhccvd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// --- !! DO NOT CHANGE THIS LINE !! ---
+// This will print the value that the Render server is actually using.
+console.log("SERVER IS SEEING THIS URI:", MONGO_URI_DEBUG); 
 
 // --- Database Connection ---
 mongoose.connect(MONGO_URI_DEBUG) // We are using the hardcoded string here
@@ -48,5 +53,5 @@ app.get('/:code', async (req, res) => {
 });
 
 // --- Server Listen ---
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000; // Render uses port 10000
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
