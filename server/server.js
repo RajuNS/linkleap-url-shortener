@@ -12,9 +12,10 @@ app.use(cors());
 app.use(express.json());
 
 // --- !! FINAL DEBUGGING STEP !! ---
-// Paste your full MongoDB Atlas connection string inside the quotation marks below.
-// Example: "mongodb+srv://nelapatir1:YourPassword123@cluster0.zuhccvd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-const MONGO_URI_DEBUG = "mongodb+srv://nelapatir1:Ramadevi@143@cluster0.zuhccvd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// The @ symbol in your password must be replaced with %40.
+// Example: If your password is "Ramadevi@143", the string should be:
+
+const MONGO_URI_DEBUG = "mongodb+srv://nelapatir1:Ramadevi%40143@cluster0.zuhccvd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // --- !! DO NOT CHANGE THIS LINE !! ---
 // This will print the value that the Render server is actually using.
