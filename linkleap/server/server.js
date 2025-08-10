@@ -13,7 +13,7 @@ app.use(express.json());
 
 // --- !! TEMPORARY DEBUGGING STEP !! ---
 // Replace the placeholder below with your full MongoDB Atlas connection string.
-const MONGO_URI_DEBUG = "YOUR_ATLAS_CONNECTION_STRING_HERE";
+const MONGO_URI_DEBUG = "mongodb+srv://nelapatir1:Ramadevi@143@cluster0.zuhccvd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // --- Database Connection ---
 mongoose.connect(MONGO_URI_DEBUG) // We are using the hardcoded string here
